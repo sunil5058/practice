@@ -1,0 +1,398 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            padding: 40px;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        /* Animated background elements */
+        .rain {
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: linear-gradient(transparent, rgba(255,255,255,0.8));
+            animation: rainfall 1s linear infinite;
+        }
+
+        @keyframes rainfall {
+            from { top: -50px; }
+            to { top: 100%; }
+        }
+
+        .cloud {
+            position: absolute;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from { left: -100px; }
+            to { left: 110%; }
+        }
+
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(0,150,255,0.2));
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Slide 1 - Title */
+        #slide1 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 82px;
+            color: white;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            animation: titlePulse 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 38px;
+            color: #fff;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .water-drops {
+            font-size: 110px;
+            margin: 30px 0;
+            animation: dropBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes dropBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        /* Slide backgrounds with animations */
+        #slide2 { 
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            position: relative;
+        }
+        #slide3 { 
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            position: relative;
+        }
+        #slide4 { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        #slide5 { 
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            position: relative;
+        }
+        #slide6 { 
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            position: relative;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 35px;
+            padding: 50px;
+            max-width: 950px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,255,255,0.5);
+            animation: boxFloat 4s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes boxFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .slide-title {
+            font-size: 52px;
+            color: #333;
+            margin-bottom: 35px;
+            text-align: center;
+            border-bottom: 5px solid;
+            padding-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .illustration {
+            font-size: 130px;
+            text-align: center;
+            margin: 35px 0;
+            animation: iconSpin 1s ease-out;
+        }
+
+        @keyframes iconSpin {
+            from {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .description {
+            font-size: 26px;
+            color: #444;
+            line-height: 1.7;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            font-size: 27px;
+            color: #222;
+            margin: 25px 0;
+            padding: 20px 25px;
+            background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideInList 0.6s ease-out forwards;
+            border-left: 6px solid #2ecc71;
+        }
+
+        .tips-list li:nth-child(1) { animation-delay: 0.2s; }
+        .tips-list li:nth-child(2) { animation-delay: 0.4s; }
+        .tips-list li:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInList {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .tips-list li:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 25px;
+            z-index: 1000;
+        }
+
+        button {
+            padding: 18px 35px;
+            font-size: 22px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+        }
+
+        button:active {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .print-hint {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #ffd89b 0%, #ffeb3b 100%);
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-size: 17px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            color: #333;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            z-index: 1000;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateX(-50%) translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Fun decorative elements */
+        .sparkle {
+            position: absolute;
+            font-size: 30px;
+            animation: sparkleFloat 3s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+        }
